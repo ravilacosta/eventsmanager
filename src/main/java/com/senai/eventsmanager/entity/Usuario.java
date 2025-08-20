@@ -11,11 +11,11 @@ import java.util.UUID;
 @Entity
 @Table(name = "usuario")
 
-public class Usuarios {
+public class Usuario {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO,generator = "UUID")
  @Column(nullable = false,unique = true,updatable = false)
-    private UUID idUsuario;
+    private UUID id;
     @Column(nullable = false)
     private String nome;
     @Column(nullable = false,unique = true)
@@ -33,14 +33,11 @@ public class Usuarios {
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
 
-    public Usuarios() {
+    public Usuario() {
     }
 
-    public Usuarios(UUID idUsuario, String nome, String email, String senha, String cpf, String telefone,
-                    UsuarioEnum tipoUsuario, Date dataNascimento, LocalDateTime createdAt, LocalDateTime updatedAt)
-    {
-
-        this.idUsuario = idUsuario;
+    public Usuario(UUID id, String nome, String email, String senha, String cpf, String telefone, UsuarioEnum tipoUsuario, Date dataNascimento, LocalDateTime createdAt, LocalDateTime updatedAt, List<Usuario> usuario) {
+        this.id = id;
         this.nome = nome;
         this.email = email;
         this.senha = senha;
@@ -50,14 +47,15 @@ public class Usuarios {
         this.dataNascimento = dataNascimento;
         this.createdAt = createdAt;
         this.updatedAt = updatedAt;
+
     }
 
-    public UUID getIdUsuario() {
-        return idUsuario;
+    public UUID getId() {
+        return id;
     }
 
-    public void setIdUsuario(UUID idUsuario) {
-        this.idUsuario = idUsuario;
+    public void setId(UUID id) {
+        this.id = id;
     }
 
     public String getNome() {
@@ -132,17 +130,10 @@ public class Usuarios {
         this.updatedAt = updatedAt;
     }
 
-    public List<Usuario> getUsuarios() {
-        return usuarios;
-    }
-
-    public void setUsuarios(List<Usuario> usuarios) {
-        this.usuarios = usuarios;
-    }
 
 
     @OneToMany (mappedBy = "usuario")
-    private List<Usuario> usuarios;
+    private List<Inscricoes> inscricoes;
 
 
 

@@ -42,6 +42,7 @@ public class Inscricoes {
         this.updatedAt = updatedAt;
     }
 
+
     public UUID getId() {
         return id;
     }
