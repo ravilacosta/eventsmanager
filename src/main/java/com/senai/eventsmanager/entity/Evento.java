@@ -28,19 +28,22 @@ import java.util.UUID;
         private LocalDateTime dataInicio;
         @Column(nullable = false)
         private LocalDateTime dataFinal;
+        private double valor;
         private String linkEvento;
         private String linkImagem;
         private LocalDateTime createdAt;
         private LocalDateTime updatedAt;
+        // Relacionamento com o Objeto Inscrição
+        @OneToMany(mappedBy = "evento")
+        private List<Inscricoes> inscricoes;
 
         public Evento() {
         }
 
-        public Evento(UUID id, String nome, String descricao, EventoEnum tipo, String local, LocalDateTime dataInicio,
-                      LocalDateTime dataFinal, String linkEvento, String linkImagem, LocalDateTime createdAt,
-                      LocalDateTime updatedAt)
-        {
-
+        public Evento(UUID id, String nome, String descricao, EventoEnum tipo, String local,
+                      LocalDateTime dataInicio, LocalDateTime dataFinal, double valor,
+                      String linkEvento, String linkImagem, LocalDateTime createdAt,
+                      LocalDateTime updatedAt) {
             this.id = id;
             this.nome = nome;
             this.descricao = descricao;
@@ -48,6 +51,7 @@ import java.util.UUID;
             this.local = local;
             this.dataInicio = dataInicio;
             this.dataFinal = dataFinal;
+            this.valor = valor;
             this.linkEvento = linkEvento;
             this.linkImagem = linkImagem;
             this.createdAt = createdAt;
@@ -78,20 +82,20 @@ import java.util.UUID;
             this.descricao = descricao;
         }
 
-        public String getLocal() {
-            return local;
-        }
-
-        public void setLocal(String local) {
-            this.local = local;
-        }
-
         public EventoEnum getTipo() {
             return tipo;
         }
 
         public void setTipo(EventoEnum tipo) {
             this.tipo = tipo;
+        }
+
+        public String getLocal() {
+            return local;
+        }
+
+        public void setLocal(String local) {
+            this.local = local;
         }
 
         public LocalDateTime getDataInicio() {
@@ -108,6 +112,14 @@ import java.util.UUID;
 
         public void setDataFinal(LocalDateTime dataFinal) {
             this.dataFinal = dataFinal;
+        }
+
+        public double getValor() {
+            return valor;
+        }
+
+        public void setValor(double valor) {
+            this.valor = valor;
         }
 
         public String getLinkEvento() {
@@ -141,20 +153,10 @@ import java.util.UUID;
         public void setUpdatedAt(LocalDateTime updatedAt) {
             this.updatedAt = updatedAt;
         }
-
-        public List<Inscricoes> getInscricoes() {
-            return inscricoes;
-        }
-
-        public void setInscricoes(List<Inscricoes> inscricoes) {
-            this.inscricoes = inscricoes;
-        }
-
-
-        // Relacionamento com o Objeto Inscrição
-        @OneToMany(mappedBy = "evento")
-        private List<Inscricoes> inscricoes;
-
     }
+
+
+
+
 
 
