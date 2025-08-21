@@ -18,7 +18,7 @@ public class UsuarioController {
         return service.findById(id);}
         // pegar todos os usuarios
         @GetMapping List<UsuarioCreateDTO> findAll(){
-            return service.findyAll();
+        return service.findyAll();
         }
      //salavar um usuario
     @PostMapping

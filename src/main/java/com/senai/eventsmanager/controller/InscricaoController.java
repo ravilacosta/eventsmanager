@@ -2,6 +2,7 @@ package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.InscricaoCreateDTO;
 import com.senai.eventsmanager.dto.UsuarioCreateDTO;
+import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -15,7 +16,8 @@ public class InscricaoController {
 
     @GetMapping("/{id}")
     public InscricaoCreateDTO findById(@PathVariable("id") UUID id) {
-        return service.findById(id);}
+        return Service.findbyId(id);
+    }
     // pegar todos as inscriçoes
     @GetMapping
     List<InscricaoCreateDTO> findAll(){
