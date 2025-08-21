@@ -1,6 +1,7 @@
 package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.EventoCreateDTO;
+import com.senai.eventsmanager.dto.InscricaoCreateDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -23,13 +24,14 @@ public class EventoController {
     //salvar um evento
     @PostMapping
     public EventoCreateDTO save (@RequestBody EventoCreateDTO eventoCreateDTO) {
+
         return service.save(eventoCreateDTO);
     }
     //atulizar um evento
     @PutMapping("{/id}")
     public  EventoCreateDTO update(@PathVariable ("id") UUID id,
                                    @RequestBody EventoCreateDTO eventoCreateDTO) {
-       return service.update(id, eventoCreateDTO);
+       return service.update(id);
     }
     //deletar um evento pelo id
     @DeleteMapping("/{id}")
