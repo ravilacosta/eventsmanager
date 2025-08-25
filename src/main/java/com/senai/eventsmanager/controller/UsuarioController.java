@@ -2,6 +2,7 @@ package com.senai.eventsmanager.controller;
 
 import com.senai.eventsmanager.dto.EventoCreateDTO;
 import com.senai.eventsmanager.dto.UsuarioCreateDTO;
+import com.senai.eventsmanager.service.UsuarioService;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,7 +13,7 @@ import java.util.UUID;
 
 public class UsuarioController {
     //pegar um usuario pelo seu id
-
+UsuarioService service;
     @GetMapping("/{id}")
     public UsuarioCreateDTO findById(@PathVariable("id") UUID id) {
         return service.findById(id);}

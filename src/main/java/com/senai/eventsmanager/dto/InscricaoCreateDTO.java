@@ -14,4 +14,12 @@ public class InscricaoCreateDTO {
 
     public InscricaoCreateDTO() {
     }
+
+    public LocalDateTime getDataHora() {
+        return null;
+    }
+
+    public InscricaoStatusEnum getStatusPagamento() {
+        return null;
+    }
 }
