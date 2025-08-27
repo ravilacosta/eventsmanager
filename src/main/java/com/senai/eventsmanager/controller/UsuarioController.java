@@ -3,6 +3,7 @@ package com.senai.eventsmanager.controller;
 import com.senai.eventsmanager.dto.EventoCreateDTO;
 import com.senai.eventsmanager.dto.UsuarioCreateDTO;
 import com.senai.eventsmanager.service.UsuarioService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -12,6 +13,7 @@ import java.util.UUID;
 @RequestMapping("/api/v1/usuario")
 
 public class UsuarioController {
+    @Autowired
     //pegar um usuario pelo seu id
 UsuarioService service;
     @GetMapping("/{id}")
@@ -19,7 +21,7 @@ UsuarioService service;
         return service.findById(id);}
         // pegar todos os usuarios
         @GetMapping List<UsuarioCreateDTO> findAll(){
-        return service.findyAll();
+        return service.findAll();
         }
      //salavar um usuario
     @PostMapping
@@ -27,14 +29,14 @@ UsuarioService service;
         return service.save(usuarioCreateDTO);
     }
     //atulizar um usuario
-    @PutMapping("{/id}")
+    @PutMapping("/{id}")
     public UsuarioCreateDTO update(@PathVariable ("id") UUID id,
                                   @RequestBody UsuarioCreateDTO usuarioCreateDTO) {
-        return service.update(id);
+        return service.update(id, usuarioCreateDTO);
     }
     //deletar um usuario pelo id
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable ("id") UUID id) {
-        service.deleteBy(id);
+        service.delete(id);
     }
 }

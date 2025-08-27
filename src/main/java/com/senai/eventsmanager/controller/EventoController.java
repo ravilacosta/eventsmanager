@@ -4,6 +4,7 @@ import com.senai.eventsmanager.dto.EventoCreateDTO;
 import com.senai.eventsmanager.dto.InscricaoCreateDTO;
 
 import com.senai.eventsmanager.service.EventoService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.*;
 
@@ -13,6 +14,7 @@ import java.util.UUID;
 @RestController // para dizer para o spring é um controller( get, post, put)
 @RequestMapping("/api/v1/evento") //http:localhost:8080/api/v1/evento  // request esta acessando essa porta
 public class EventoController {
+    @Autowired
     EventoService service;
 
     static class EventoControllerService {
@@ -35,16 +37,17 @@ public class EventoController {
     public EventoCreateDTO save (@RequestBody EventoCreateDTO eventoCreateDTO) {
         return service.save(eventoCreateDTO);
     }
+
     //atulizar um evento
-    @PutMapping("{/id}")
-    public  EventoCreateDTO update(@PathVariable ("id") UUID id,
+    @PutMapping("/{id}")
+    public  EventoCreateDTO update(@PathVariable("id") UUID id,
                                    @RequestBody EventoCreateDTO eventoCreateDTO) {
-       return service.update(id);
+       return service.update(id, eventoCreateDTO);
     }
     //deletar um evento pelo id
     @DeleteMapping("/{id}")
     public void deleteById(@PathVariable ("id") UUID id) {
-        service.deleteBy(id);
+        service.delete(id);
     }
 
 }

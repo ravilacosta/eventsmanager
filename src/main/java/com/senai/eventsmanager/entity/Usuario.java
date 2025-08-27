@@ -27,6 +27,7 @@ public class Usuario {
     @Column(nullable = false)
     private String telefone;
     @Column(nullable = false)
+    @Enumerated(EnumType.STRING)
     private UsuarioEnum tipoUsuario;
     @Column(nullable = false)
     private Date dataNascimento;

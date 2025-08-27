@@ -38,14 +38,14 @@ public class InscricaoService {
         // metodo para atualizar inscricao
 
         public InscricaoCreateDTO update (UUID id, InscricaoCreateDTO inscricaoDTO){
-            Inscricoes inscricao = converToEntity(inscricaoDTO)
+            Inscricoes inscricao = converToEntity(inscricaoDTO);
             inscricao.setId(id);
             inscricao = inscricaoRepository.save(inscricao);
             return converToDTO(inscricao);
         }
 
         //metodo para listar as inscricoes
-        public List<InscricaoCreateDTO> findAll () {
+        public List<InscricaoCreateDTO> findyAll () {
             List<Inscricoes> inscricoes = inscricaoRepository.findAll();
             // criar uma lista de inscricao createDTO
             List<InscricaoCreateDTO> inscricaoCreateDTOS = new ArrayList<>();

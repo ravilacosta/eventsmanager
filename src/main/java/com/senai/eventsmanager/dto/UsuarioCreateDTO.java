@@ -3,6 +3,7 @@ package com.senai.eventsmanager.dto;
 import com.senai.eventsmanager.entity.UsuarioEnum;
 
 import java.time.LocalDateTime;
+import java.util.Date;
 
 public class UsuarioCreateDTO {
 
@@ -12,22 +13,13 @@ public class UsuarioCreateDTO {
         private String cpf;
         private String telefone;
         private UsuarioEnum tipoUsuario;
-        private LocalDateTime dataNascimento;
+        private Date dataNascimento;
+        private LocalDateTime createdAt;
+        private LocalDateTime updatedAt;
 
     public UsuarioCreateDTO() {
-    }
+            }
 
-    public UsuarioCreateDTO(String nome,
-                            String email, String senha, String cpf, String telefone,
-                            UsuarioEnum tipoUsuario, LocalDateTime dataNascimento) {
-        this.nome = nome;
-        this.email = email;
-        this.senha = senha;
-        this.cpf = cpf;
-        this.telefone = telefone;
-        this.tipoUsuario = tipoUsuario;
-        this.dataNascimento = dataNascimento;
-    }
 
     public String getNome() {
         return nome;
@@ -77,11 +69,31 @@ public class UsuarioCreateDTO {
         this.tipoUsuario = tipoUsuario;
     }
 
-    public LocalDateTime getDataNascimento() {
+    public Date getDataNascimento() {
         return dataNascimento;
     }
 
-    public void setDataNascimento(LocalDateTime dataNascimento) {
+    public void setDataNascimento(Date dataNascimento) {
         this.dataNascimento = dataNascimento;
     }
+
+
+    public LocalDateTime getCreatedAt() {
+        return createdAt;
+    }
+
+    public void setCreatedAt(LocalDateTime createdAt) {
+        this.createdAt = createdAt;
+    }
+
+    public LocalDateTime getUpdatedAt() {
+        return updatedAt;
+    }
+
+    public void setUpdatedAt(LocalDateTime updatedAt) {
+        this.updatedAt = updatedAt;
+    }
+
+
+
 }
