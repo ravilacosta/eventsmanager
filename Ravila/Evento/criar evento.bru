@@ -1,0 +1,29 @@
+meta {
+  name: criar evento
+  type: http
+  seq: 2
+}
+
+post {
+  url: http://localhost:8080/api/v1/evento
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Semana dos Colecionáveis",
+    "descricao": "Visitacao",
+    "tipo": "STARTUP",
+    "local": "Auditório Central",
+    "dataInicio": "2025-10-25T09:00:00",
+    "dataFinal": "2025-10-25T18:00:00",
+    "linkEvento": "https://carros.com/evento",
+    "linkImagem": "https://carros.com/imagem.jpg",
+    "valor": 50.00
+  }
+}
+
+settings {
+  encodeUrl: true
+}

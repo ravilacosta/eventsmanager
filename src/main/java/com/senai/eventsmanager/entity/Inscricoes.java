@@ -6,7 +6,7 @@ import java.time.LocalDateTime;
 import java.util.UUID;
 
 @Entity
-@Table(name = "inscrições")
+@Table(name = "inscricoes")
 
 public class Inscricoes {
     @Id
@@ -22,7 +22,7 @@ public class Inscricoes {
     @ManyToOne
     @JoinColumn(name ="Usuario_id", nullable = false )
     private Usuario usuario;
-
+    @Enumerated(EnumType.STRING)
     private InscricaoStatusEnum statusPagamento;
     private LocalDateTime dataHora;
     private LocalDateTime createdAt;

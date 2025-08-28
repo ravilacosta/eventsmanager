@@ -1,0 +1,29 @@
+meta {
+  name: atualizar evento
+  type: http
+  seq: 3
+}
+
+put {
+  url: http://localhost:8080/api/v1/evento/8d550811-6f9b-414f-af30-1ec7cfe31313
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {
+    "nome": "Semana dos Carros Incríveis",
+    "descricao": "Visitacao",
+    "tipo": "STARTUP",
+    "local": "Auditório Central",
+    "dataInicio": "2025-10-25T09:00:00",
+    "dataFinal": "2025-10-25T18:00:00",
+    "linkEvento": "https://carros.com/evento",
+    "linkImagem": "https://carros.com/imagem.jpg",
+    "valor": 100.00
+  }
+}
+
+settings {
+  encodeUrl: true
+}

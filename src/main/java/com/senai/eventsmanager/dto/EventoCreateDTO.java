@@ -14,6 +14,7 @@ public class EventoCreateDTO {
             private LocalDateTime dataFinal;
             private String linkEvento;
             private String linkImagem;
+            private double valor;
             //this.createdAt = createdAt;
             //this.updatedAt = updatedAt;
 
@@ -21,9 +22,9 @@ public class EventoCreateDTO {
     public EventoCreateDTO() {
     }
 
-    public EventoCreateDTO(String nome, String descricao, EventoEnum tipo,
-                           String local, LocalDateTime dataInicio,
-                           LocalDateTime dataFinal, String linkEvento, String linkImagem) {
+    public EventoCreateDTO(String nome, String descricao, EventoEnum tipo, String local,
+                           LocalDateTime dataInicio,
+                           LocalDateTime dataFinal, String linkEvento, String linkImagem, double valor) {
         this.nome = nome;
         this.descricao = descricao;
         this.tipo = tipo;
@@ -32,6 +33,7 @@ public class EventoCreateDTO {
         this.dataFinal = dataFinal;
         this.linkEvento = linkEvento;
         this.linkImagem = linkImagem;
+        this.valor = valor;
     }
 
     public String getNome() {
@@ -97,4 +99,8 @@ public class EventoCreateDTO {
     public void setLinkImagem(String linkImagem) {
         this.linkImagem = linkImagem;
     }
+
+    public double getValor() { return valor;}
+
+    public void setValor(double valor) {this.valor = valor;}
 }

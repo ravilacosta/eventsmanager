@@ -1,0 +1,24 @@
+meta {
+  name: criar inscricao
+  type: http
+  seq: 3
+}
+
+post {
+  url: http://localhost:8080/api/v1/inscricao
+  body: json
+  auth: inherit
+}
+
+body:json {
+  {  
+   "evento":{"id": "338f3729-2a47-4ad1-b6cd-c829c36cb6ce"},
+   "usuario": {"id":"5e076d44-3244-4cc3-8f5f-2e4f25142351"}, 
+   "statusPagamento":"PAGO",
+   "dataHora": "2025-10-25T09:00:00"
+  }
+}
+
+settings {
+  encodeUrl: true
+}

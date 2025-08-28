@@ -1,0 +1,30 @@
+meta {
+  name: atualizar usuario
+  type: http
+  seq: 2
+}
+
+put {
+  url: http://localhost:8080/api/v1/usuario/a4ba24c3-bfef-4149-908a-a3c1e69e42fb
+  body: json
+  auth: inherit
+}
+
+body:json {
+  
+    {
+      "nome": "paulo santos",
+      "email": "paulo322@gmail.com",
+      "senha": "2222",
+      "cpf": "15515515",
+      "telefone": "489881212",
+      "tipoUsuario": "USER",
+      "dataNascimento": "1990-07-10T00:00:00.000+00:00",
+      "createdAt": null,
+      "updatedAt": null
+    }
+}
+
+settings {
+  encodeUrl: true
+}

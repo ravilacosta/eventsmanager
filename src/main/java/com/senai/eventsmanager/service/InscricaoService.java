@@ -31,6 +31,10 @@ public class InscricaoService {
       }
         //metodo para salvar evento
         public InscricaoCreateDTO save (InscricaoCreateDTO inscricaoDTO){
+            System.out.println("evento:"+inscricaoDTO.getEvento().getId());
+            System.out.println("usuario:"+inscricaoDTO.getUsuario().getId());
+            System.out.println("Datahora:"+inscricaoDTO.getDataHora());
+            System.out.println("Status:"+inscricaoDTO.getStatusPagamento());
             Inscricoes inscricao = converToEntity(inscricaoDTO);
             inscricao = inscricaoRepository.save(inscricao);
             return converToDTO(inscricao);
@@ -59,14 +63,20 @@ public class InscricaoService {
         public void Delete (UUID id){
             inscricaoRepository.deleteById(id);
         }
+
         public InscricaoCreateDTO converToDTO (Inscricoes inscricoes){
             InscricaoCreateDTO inscricaoCreateDTO = new InscricaoCreateDTO();
-         inscricoes.setDataHora(inscricoes.getDataHora());
-         inscricoes.setStatusPagamento(inscricoes.getStatusPagamento());
+            inscricaoCreateDTO.setEvento(inscricoes.getEvento());
+            inscricaoCreateDTO.setUsuario(inscricoes.getUsuario());
+            inscricaoCreateDTO.setDataHora(inscricoes.getDataHora());
+            inscricaoCreateDTO.setStatusPagamento(inscricoes.getStatusPagamento());
+
          return inscricaoCreateDTO;
         }
         public Inscricoes converToEntity (InscricaoCreateDTO inscricaoCreateDTO) {
             Inscricoes inscricoes = new Inscricoes();
+            inscricoes.setEvento(inscricaoCreateDTO.getEvento());
+            inscricoes.setUsuario(inscricaoCreateDTO.getUsuario());
             inscricoes.setDataHora(inscricaoCreateDTO.getDataHora());
             inscricoes.setStatusPagamento(inscricaoCreateDTO.getStatusPagamento());
             return inscricoes;
