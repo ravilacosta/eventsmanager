@@ -19,6 +19,7 @@ UsuarioService service;
     @GetMapping("/{id}")
     public UsuarioCreateDTO findById(@PathVariable("id") UUID id) {
         return service.findById(id);}
+
         // pegar todos os usuarios
         @GetMapping List<UsuarioCreateDTO> findAll(){
         return service.findAll();

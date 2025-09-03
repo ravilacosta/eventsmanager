@@ -35,6 +35,7 @@ public class EventoController {
     //salvar um evento
     @PostMapping
     public EventoCreateDTO save (@RequestBody EventoCreateDTO eventoCreateDTO) {
+
         return service.save(eventoCreateDTO);
     }
 
